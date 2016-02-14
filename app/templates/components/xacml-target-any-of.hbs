@@ -1,0 +1,14 @@
+<ul>
+    <li>AND&nbsp;
+        <button class="button glyphicon glyphicon-minus">Удалить</button>
+        &nbsp;&nbsp;
+        <button class="button glyphicon glyphicon-plus">Добавить</button>
+        <ul>
+            {{#each model.targetAllOf as |targetAllOf|}}
+                <li>
+                    {{xacml-target-all-of model=targetAllOf}}
+                </li>
+            {{/each}}
+        </ul>
+    </li>
+</ul>
