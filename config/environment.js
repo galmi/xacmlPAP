@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'xacml-pap1',
+    modulePrefix: 'xacml-pap',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

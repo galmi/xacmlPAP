@@ -1,16 +1,7 @@
-import DS from 'ember-data';
+import MF from 'model-fragments';
 
-var targetAnyOf = DS.Model.extend({
-  targetAllOf: DS.hasMany('target-all-of', {async : true})
-});
-
-targetAnyOf.reopenClass({
-  FIXTURES: [
-    {
-      id: 1,
-      targetAllOf: [1]
-    }
-  ]
+var targetAnyOf = MF.Fragment.extend({
+  targetAllOf: MF.fragmentArray('target-all-of')
 });
 
 export default targetAnyOf;

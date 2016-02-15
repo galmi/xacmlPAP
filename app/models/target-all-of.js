@@ -1,16 +1,7 @@
-import DS from 'ember-data';
+import MF from 'model-fragments';
 
-var targetAllOf = DS.Model.extend({
-  matches: DS.hasMany('match', {async : true})
-});
-
-targetAllOf.reopenClass({
-  FIXTURES: [
-    {
-      id: 1,
-      matches: [1, 2]
-    }
-  ]
+var targetAllOf = MF.Fragment.extend({
+  matches: MF.fragmentArray('match')
 });
 
 export default targetAllOf;
