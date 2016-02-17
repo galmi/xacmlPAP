@@ -1,9 +1,16 @@
-<ul>
-    <li>OR &nbsp;
-        <button class="button glyphicon glyphicon-plus">Добавить</button>
-        {{#each target.targetAnyOf as |targetAnyOf|}}
-            {{xacml-target-any-of model=targetAnyOf}}
-        {{/each}}
-    </li>
-</ul>
-
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">Target</div>
+        <div class="panel-body">
+            <ul>
+                <li>OR &nbsp;
+                    <button class="button glyphicon glyphicon-plus" {{action "addTargetAnyOf" target}}>Добавить</button>
+                    {{#each target.targetAnyOf as |targetAnyOf|}}
+                        {{xacml-target-any-of model=targetAnyOf target=target}}
+                    {{/each}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <button class="button glyphicon glyphicon-plus" {{action "serialize" target}}>Сериализовать</button>
+</div>
