@@ -15,9 +15,6 @@ export default Ember.Component.extend({
                     }
                 ]
             });
-        },
-        serialize(target) {
-            console.log(target.serialize());
         }
     }
 });
