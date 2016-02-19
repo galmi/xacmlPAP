@@ -10,8 +10,8 @@ cache:
     - node_modules
 
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y watchman
+  - "apt-get -qq update"
+  - "apt-get install -y watchman"
   - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
   - "npm config set spin false"
   - "npm install -g npm@^2"
