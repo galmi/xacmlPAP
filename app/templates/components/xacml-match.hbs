@@ -1,2 +1,7 @@
-{{input value=model.attributeId placeholder="Атрибут"}}&nbsp;=&nbsp;{{input value=model.attributeValue placeholder="Значение"}}
-<button class="button glyphicon glyphicon-minus" {{action "removeMatch" targetAllOf model}}>Удалить</button>
+<div class="row">
+    <div class="col-md-12">
+        {{input value=model.attributeId placeholder="Атрибут"}}
+        &nbsp;=&nbsp;{{input value=model.attributeValue placeholder="Значение"}}
+        <button class="button btn-default btn-xs glyphicon glyphicon-minus" {{action "removeMatch" targetAllOf model}}></button>
+    </div>
+</div>

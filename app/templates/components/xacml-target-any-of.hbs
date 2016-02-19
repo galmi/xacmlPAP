@@ -1,8 +1,14 @@
-<ul>
-    <li>AND&nbsp;
-        <button class="button glyphicon glyphicon-minus" {{action "removeTargetAnyOf" target model}}>Удалить</button>
-        {{#each model.targetAllOf as |targetAllOf|}}
-            {{xacml-target-all-of model=targetAllOf}}
-        {{/each}}
-    </li>
-</ul>
+<div class="row">
+    <div class="col-md-12">
+        <span>AND</span>
+        <button class="button btn-default btn-xs glyphicon glyphicon-plus" {{action "addTargetMatch" model}}></button>
+        <button class="button btn-default btn-xs glyphicon glyphicon-minus" {{action "removeTargetAnyOf" target model}}></button>
+        <ul class="list-tree">
+            <li>
+                {{#each model.targetAllOf as |targetAllOf|}}
+                    {{xacml-target-all-of model=targetAllOf}}
+                {{/each}}
+            </li>
+        </ul>
+    </div>
+</div>

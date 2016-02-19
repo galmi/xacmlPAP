@@ -1,8 +1,11 @@
-<button class="button glyphicon glyphicon-plus" {{action "addTargetMatch" model}}>Добавить</button>
-<ul>
-{{#each model.matches as |match|}}
-    <li>
-        {{xacml-match model=match targetAllOf=model}}
-    </li>
-{{/each}}
-</ul>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-tree">
+            {{#each model.matches as |match|}}
+                <li>
+                    {{xacml-match model=match targetAllOf=model}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
