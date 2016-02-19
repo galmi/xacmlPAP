@@ -18,13 +18,15 @@ ul.list-tree>li {
     position: relative;
     padding-left: 5px;
 }
+.list-tree>li:first-child::after, .list-tree>li:first-child::before {
+    height: 50%;
+}
 .list-tree>li::after, .list-tree>li::before {
     content: '';
     position: absolute;
     left: -10px;
     width: 10px;
-    height: 50%;
-/*calc(50% + 4px);*/
+    height: calc(50% + 5px);;
     border-color: #CCC;
     border-style: solid;
 }
