@@ -17,6 +17,12 @@ rule.reopenClass({
       isPermit: true,
       description: "Правило 1",
       target: 1
+    },
+    {
+      id: 2,
+      isPermit: true,
+      description: "Правило 2",
+      target: null
     }
   ]
 });

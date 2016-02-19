@@ -3,14 +3,17 @@
         <div class="panel-heading">Target</div>
         <div class="panel-body">
             <div class="col-md-12 tree-group">
-                <span>OR</span> <button class="btn btn-default btn-xs glyphicon glyphicon-plus" {{action "addTargetAnyOf" target}}></button>
-                <ul class="list-tree">
-                    {{#each target.targetAnyOf as |targetAnyOf|}}
-                        <li>
-                        {{xacml-target-any-of model=targetAnyOf target=target}}
-                        </li>
-                    {{/each}}
-                </ul>
+                {{#if target}}
+                    <span>OR</span>
+                    <button class="btn btn-default btn-xs glyphicon glyphicon-plus" {{action "addTargetAnyOf" target}}></button>
+                    <ul class="list-tree">
+                        {{#each target.targetAnyOf as |targetAnyOf|}}
+                            <li>
+                                {{xacml-target-any-of model=targetAnyOf target=target}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                {{/if}}
             </div>
         </div>
     </div>
