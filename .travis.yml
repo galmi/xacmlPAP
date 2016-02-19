@@ -3,15 +3,15 @@ language: node_js
 node_js:
   - "0.12"
 
-sudo: false
+sudo: true
 
 cache:
   directories:
     - node_modules
 
 before_install:
-  - "apt-get -qq update"
-  - "apt-get install -y watchman"
+  - sudo apt-get -qq update
+  - sudo apt-get install -y watchman
   - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
   - "npm config set spin false"
   - "npm install -g npm@^2"
