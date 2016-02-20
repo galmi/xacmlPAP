@@ -1,8 +1,10 @@
 <div class="col-md-12">
     <div class="panel panel-default">
-        <div class="panel-heading">Rule
-            <button type="button" class="button btn btn-default glyphicon-minus"></button>
-            <button type="button" class="button btn btn-default glyphicon-chevron-up pull-right"></button>
+        <div class="panel-heading">Rule: {{rule.description}}
+            <button type="button"
+                    class="button btn btn-default btn-xs glyphicon glyphicon-chevron-up pull-right"></button>
+            &nbsp;
+            <button type="button" class="button btn btn-default btn-xs glyphicon glyphicon-minus pull-right"></button>
         </div>
         <div class="panel-body">
             <div class="form-horizontal col-md-12">
@@ -24,7 +26,22 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    {{xacml-target target=rule.target}}
+                    {{#if rule.target }}
+                        {{xacml-target target=rule.target}}
+                    {{ else }}
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-default" {{action "addTarget" rule}}><span
+                                    class="glyphicon glyphicon-plus"></span> Add Target
+                            </button>
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {{xacml-condition condition=rule.condition}}
+                    <button type="button"
+                            class="button btn btn-default btn-xs glyphicon glyphicon-minus pull-right" {{action "addConditionAttribute" rule}}></button>
                 </div>
             </div>
         </div>

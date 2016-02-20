@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import MF from 'model-fragments';
 
 let rule = DS.Model.extend({
   isPermit: DS.attr('boolean'),
@@ -7,7 +8,7 @@ let rule = DS.Model.extend({
   }.property('isPermit'),
   description: DS.attr(),
   target: DS.belongsTo('target', {async: true}),
-  condition: DS.attr() //todo relation with Expression
+  condition: MF.Fragment('condition')
 });
 
 rule.reopenClass({

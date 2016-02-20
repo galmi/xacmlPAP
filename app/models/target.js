@@ -15,7 +15,7 @@ target.reopenClass({
             {
               matches: [
                 {
-                  attributeId: 'Attr1',
+                  attributeId: 'subject',
                   attributeValue: 'Value1'
                 },
                 {
