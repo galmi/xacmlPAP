@@ -59,3 +59,11 @@ ul.list-tree>li {
 .list-tree>li:only-child::after, .list-tree>li:only-child::before {
     border-width: 0 0 0 0;
 }
+
+.row {
+    margin-bottom: 20px;
+}
+
+.tree-group .row {
+    margin-bottom: 0;
+}

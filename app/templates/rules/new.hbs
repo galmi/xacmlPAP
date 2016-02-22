@@ -1,0 +1,14 @@
+<div class="col-md-12">
+    <h2>New rule</h2>
+    <div class="row">
+        <div class="col-md-12">
+            {{xacml-rule rule=model}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-default" {{action "commit" model}}>Save</button>&nbsp;
+            <a href="#" {{action "rollback" model}}>Return</a>
+        </div>
+    </div>
+</div>
