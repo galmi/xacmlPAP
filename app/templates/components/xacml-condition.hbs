@@ -2,48 +2,55 @@
 
 {{#if condition}}
     {{#if condition.isFuncOr }}
-        <div class="col-md-12 tree-group">
-            <span>OR</span>
-            <button class="btn btn-default btn-xs glyphicon glyphicon-plus" {{action "addAndCondition" condition}}></button>
-            <ul class="list-tree">
-                {{#each condition.conditions as |childCondition|}}
-                    <li>
-                        {{xacml-condition condition=childCondition parentCondition=condition}}
-                    </li>
-                {{/each}}
-            </ul>
+        <div class="panel panel-default">
+            <div class="panel-heading">Conditions</div>
+            <div class="panel-body">
+                <div class="col-md-12 tree-group">
+                    <span>OR</span>
+                    <button class="btn btn-default btn-xs glyphicon glyphicon-plus" {{action "addOrCondition" condition}}></button>
+                    <ul class="list-tree">
+                        {{#each condition.conditions as |childCondition|}}
+                            <li>
+                                {{xacml-condition condition=childCondition parentCondition=condition}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
         </div>
     {{else if condition.isFuncAnd }}
         <div class="row">
             <div class="col-md-12">
                 <span>AND</span>
-                <button class="button btn btn-default btn-xs glyphicon glyphicon-plus" {{action "addOrCondition" condition}}></button>
-                <button class="button btn btn-default btn-xs glyphicon glyphicon-minus" {{action "removeOrCondition" parentCondition condition}}></button>
+                <button class="button btn btn-default btn-xs glyphicon glyphicon-plus" {{action "addAndCondition" condition}}></button>
+                <button class="button btn btn-default btn-xs glyphicon glyphicon-minus" {{action "removeCondition" parentCondition condition}}></button>
                 <ul class="list-tree">
-                    <li>
-                        {{#each condition.conditions as |childCondition|}}
+                    {{#each condition.conditions as |childCondition|}}
+                        <li>
                             {{xacml-condition condition=childCondition parentCondition=condition}}
-                        {{/each}}
-                    </li>
+                        </li>
+                    {{/each}}
                 </ul>
             </div>
         </div>
     {{else }}
-        <div class="col-md-12 form-inline">
-            {{#each condition.conditions as |condition|}}
-                {{#if condition.attributeId}}
-                    {{xacml-attributes value=condition.attributeId}}
-                {{/if}}
-            {{/each}}
-            &nbsp;
-            {{input value=condition.functionId class="form-control"}}
-            &nbsp;
-            {{#each condition.conditions as |condition|}}
-                {{#if condition.value}}
-                    {{input value=condition.value placeholder="Значение" class="form-control"}}
-                {{/if}}
-            {{/each}}
-            <button class="button btn btn-default btn-xs glyphicon glyphicon-minus" {{action "removeMatch" parentCondition condition}}></button>
+        <div class="row">
+            <div class="col-md-12 form-inline">
+                {{#each condition.conditions as |condition|}}
+                    {{#if condition.attributeId}}
+                        {{xacml-attributes value=condition.attributeId}}
+                    {{/if}}
+                {{/each}}
+                &nbsp;
+                {{input value=condition.functionId class="form-control"}}
+                &nbsp;
+                {{#each condition.conditions as |condition|}}
+                    {{#if condition.value}}
+                        {{input value=condition.value placeholder="Значение" class="form-control"}}
+                    {{/if}}
+                {{/each}}
+                <button class="button btn btn-default btn-xs glyphicon glyphicon-minus" {{action "removeCondition" parentCondition condition}}></button>
+            </div>
         </div>
     {{/if}}
 {{/if}}

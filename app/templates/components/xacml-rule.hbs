@@ -37,12 +37,14 @@
                     {{/if}}
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
+            <div class="col-md-12">
+                {{#if rule.condition}}
                     {{xacml-condition condition=rule.condition}}
-                    <button type="button"
-                            class="button btn btn-default btn-xs glyphicon glyphicon-minus pull-right" {{action "addConditionAttribute" rule}}></button>
-                </div>
+                {{else }}
+                    <button type="button" class="btn btn-default" {{action "addConditionAttribute" rule}}><span
+                            class="glyphicon glyphicon-plus"></span> Add Conditions
+                    </button>
+                {{/if}}
             </div>
         </div>
     </div>
