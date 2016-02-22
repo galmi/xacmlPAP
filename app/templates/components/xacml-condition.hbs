@@ -36,19 +36,17 @@
     {{else }}
         <div class="row">
             <div class="col-md-12 form-inline">
-                {{#each condition.conditions as |condition|}}
-                    {{#if condition.attributeId}}
-                        {{xacml-attributes value=condition.attributeId}}
-                    {{/if}}
-                {{/each}}
+                {{#if condition.firstCondition.attributeId}}
+                    {{xacml-attributes value=condition.firstCondition.attributeId}}
+                {{/if}}
                 &nbsp;
                 {{input value=condition.functionId class="form-control"}}
                 &nbsp;
-                {{#each condition.conditions as |condition|}}
-                    {{#if condition.value}}
-                        {{input value=condition.value placeholder="Значение" class="form-control"}}
-                    {{/if}}
-                {{/each}}
+                {{#if condition.lastCondition.attributeId}}
+                    {{xacml-attributes value=condition.lastCondition.attributeId}}
+                {{else if condition.lastCondition.value}}
+                    {{input value=condition.lastCondition.value class="form-control"}}
+                {{/if}}
                 <button class="button btn btn-default btn-xs glyphicon glyphicon-minus" {{action "removeCondition" parentCondition condition}}></button>
             </div>
         </div>

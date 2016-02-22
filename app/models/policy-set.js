@@ -6,5 +6,5 @@ export default DS.Model.extend({
   version: DS.attr(),
   target: DS.belongsTo('target'),
   policySets: DS.hasMany('policy-set'),
-  policies: DS.hasMany('policy  ')
+  policies: DS.hasMany('policy')
 });

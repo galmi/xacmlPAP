@@ -8,7 +8,7 @@ let rule = DS.Model.extend({
   }.property('isPermit'),
   description: DS.attr(),
   target: DS.belongsTo('target', {async: true}),
-  condition: MF.Fragment('condition')
+  condition: MF.Fragment('condition', { polymorphic: true, typeKey: '$type' })
 });
 
 rule.reopenClass({
