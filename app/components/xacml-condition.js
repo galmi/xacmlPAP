@@ -42,6 +42,10 @@ export default Ember.Component.extend({
 
         removeCondition(parentCondition, condition) {
             parentCondition.get('conditions').removeFragment(condition);
+        },
+
+        removeRuleCondition(rule) {
+            rule.set('condition', null);
         }
     }
 });
