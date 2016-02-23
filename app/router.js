@@ -10,6 +10,10 @@ Router.map(function () {
     this.route('new');
     this.route('edit', {path: '/:rule_id'});
   });
+  this.route('policies', {path: '/policies'}, function () {
+    this.route('new');
+    this.route('edit', {path: '/:policy_id'});
+  });
 });
 
 export default Router;
