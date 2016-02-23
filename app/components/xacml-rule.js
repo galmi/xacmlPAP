@@ -4,7 +4,7 @@ export default Ember.Component.extend({
     store: Ember.inject.service(),
     actions: {
         addTarget(rule) {
-            rule.set('target', this.get('store').createRecord('target', {
+            var target = this.get('store').createFragment('target', {
                 targetAnyOf: [
                     {
                         targetAllOf: [
@@ -19,7 +19,8 @@ export default Ember.Component.extend({
                         ]
                     }
                 ]
-            }));
+            });
+            rule.set('target', target);
         },
         addConditionAttribute(rule) {
             var designator = this.get('store').createFragment('condition.attribute-designator', {
