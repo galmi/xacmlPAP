@@ -60,10 +60,6 @@ ul.list-tree>li {
     border-width: 0 0 0 0;
 }
 
-.row {
-    margin-bottom: 20px;
-}
-
 .tree-group .row {
     margin-bottom: 0;
 }

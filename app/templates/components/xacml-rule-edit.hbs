@@ -2,10 +2,11 @@
     <div class="panel-heading">Rule: {{rule.description}}</div>
     <div class="panel-body">
         {{xacml-rule rule=rule}}
-
+    </div>
+    <div class="panel-footer">
         <div class="row">
             <div class="col-md-12">
-                <button type="button" class="btn btn-default" {{action "commit" rule}}>Save</button>&nbsp;
+                <button type="button" class="btn btn-default" {{action "commit" rule}}>Save rule</button>&nbsp;
                 <a href="#" {{action "rollback" rule}}>Cancel</a>
             </div>
         </div>
