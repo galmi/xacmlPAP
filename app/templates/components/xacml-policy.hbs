@@ -31,9 +31,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Rules
                     <button type="button"
-                            class="button btn btn-default btn-xs glyphicon glyphicon-chevron-up pull-right"></button>
-                    <button type="button"
-                            class="button btn btn-default btn-xs glyphicon glyphicon-plus pull-right"></button>
+                            class="button btn btn-default btn-xs glyphicon glyphicon-remove pull-right" {{action "removeRules" policy}}></button>
                 </div>
                 <div class="panel-body">
                     {{#each policy.rules as |rule|}}
@@ -54,10 +52,18 @@
                     {{/each}}
                 </div>
             </div>
-        {{ else }}
-            <button type="button" class="btn btn-default" {{action "addRule" policy}}><span
-                    class="glyphicon glyphicon-plus"></span> Add Rule
-            </button>
         {{/if}}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                {{xacml-rules-select value=selectedRule}}
+                </div>
+                <div class="col-md-5">
+                <button type="button" class="btn btn-default" {{action "addRule" policy}}><span
+                        class="glyphicon glyphicon-plus"></span> Add Rule
+                </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
