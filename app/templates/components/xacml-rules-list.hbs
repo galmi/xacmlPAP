@@ -1,0 +1,14 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each rules as |rule|}}
+        {{xacml-rules-list-row rule=rule parent=parent}}
+    {{/each}}
+    </tbody>
+</table>

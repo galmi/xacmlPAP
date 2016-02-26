@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Target</div>
+    <div class="panel-body">
+        <div class="col-md-12 tree-group">
+            {{#if target}}
+                <span>OR</span>
+                <ul class="list-tree">
+                    {{#each target.targetAnyOf as |targetAnyOf|}}
+                        <li>
+                            {{xacml-target-any-of-view model=targetAnyOf target=target}}
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+    </div>
+</div>

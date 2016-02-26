@@ -1,0 +1,48 @@
+{{#if condition}}
+    {{#if condition.isFuncOr }}
+        <div class="panel panel-default">
+            <div class="panel-heading">Conditions</div>
+            <div class="panel-body">
+                <div class="col-md-12 tree-group">
+                    <span>OR</span>
+                    <ul class="list-tree">
+                        {{#each condition.conditions as |childCondition|}}
+                            <li>
+                                {{xacml-condition-view condition=childCondition parentCondition=condition}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {{else if condition.isFuncAnd }}
+        <div class="row">
+            <div class="col-md-12">
+                <span>AND</span>
+                <ul class="list-tree">
+                    {{#each condition.conditions as |childCondition|}}
+                        <li>
+                            {{xacml-condition-view condition=childCondition parentCondition=condition}}
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    {{else }}
+        <div class="row">
+            <div class="col-md-12 form-inline">
+                {{#if condition.firstCondition.attributeId}}
+                    {{condition.firstCondition.attributeId}}
+                {{/if}}
+                &nbsp;
+                {{condition.functionId}}
+                &nbsp;
+                {{#if condition.lastCondition.attributeId}}
+                    {{condition.lastCondition.attributeId}}
+                {{else if condition.lastCondition.value}}
+                    {{condition.lastCondition.value}}
+                {{/if}}
+            </div>
+        </div>
+    {{/if}}
+{{/if}}
