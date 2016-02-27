@@ -17,9 +17,9 @@
 <div class="row form-group">
     <div class="col-md-12">
         {{#if policySet.target }}
-            {{xacml-target target=policySet.target parent=policy}}
+            {{xacml-target target=policySet.target parent=policySet}}
         {{ else }}
-            <button type="button" class="btn btn-default" {{action "addTarget" policy}}><span
+            <button type="button" class="btn btn-default" {{action "addTarget" policySet}}><span
                     class="glyphicon glyphicon-plus"></span> Add Target
             </button>
         {{/if}}
