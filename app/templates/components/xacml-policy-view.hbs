@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Rule: {{rule.description}}</div>
+    <div class="panel-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="form-horizontal col-md-12">
+                    <label>Description:</label> {{policy.description}}
+                </div>
+                <div class="form-horizontal col-md-12">
+                    <label>Rule combining algorithm:</label> {{policy.ruleCombiningAlgorithm.description}}
+                </div>
+            </div>
+        </div>
+        {{#if policy.target }}
+        <div class="row form-group">
+            <div class="col-md-12">
+                {{xacml-target-view target=policy.target parent=policy}}
+            </div>
+        </div>
+        {{/if}}
+        {{#if policy.rules}}
+        <div class="row form-group">
+            <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Rules</div>
+                        <div class="panel-body">
+                            {{xacml-rules-list-view rules=policy.rules parent=policy}}
+                        </div>
+                    </div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
+

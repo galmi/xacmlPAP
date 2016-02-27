@@ -1,5 +1,7 @@
 <div class="row">
     <div class="col-md-12">
+        <span>AND</span>
+        <button class="button btn btn-default btn-xs glyphicon glyphicon-plus" {{action "addTargetMatch" model}}></button>
         <ul class="list-tree">
             {{#each model.matches as |match|}}
                 <li>

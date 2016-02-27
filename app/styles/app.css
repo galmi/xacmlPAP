@@ -63,3 +63,7 @@ ul.list-tree>li {
 .tree-group .row {
     margin-bottom: 0;
 }
+
+.rows-1 {
+    display: none;
+}

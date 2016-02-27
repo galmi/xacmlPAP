@@ -35,7 +35,7 @@ policy.reopenClass({
                     }
                 ]
             },
-            rules: []
+            rules: [1]
         }
     ]
 });

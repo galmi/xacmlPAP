@@ -3,7 +3,7 @@
     <td>{{policySet.description}}</td>
     <td>
         <button type="button" class="button btn btn-default btn-xs glyphicon glyphicon-remove pull-right" {{action "removePolicySet" parent policySet}}></button>&nbsp;
-        <button type="button" class="button btn btn-default btn-xs glyphicon glyphicon-pencil pull-right" {{action "editPolicySet"}}></button>&nbsp;
+        {{#link-to "policysets.edit" policySet class="button btn btn-default btn-xs glyphicon glyphicon-pencil pull-right"}}{{/link-to}}
         <button type="button" class="button btn btn-default btn-xs glyphicon glyphicon-eye-open pull-right" {{action "viewPolicySet"}}></button>
     </td>
 </tr>
@@ -11,13 +11,6 @@
     <tr>
         <td colspan="3">
             {{xacml-policy-set-view policySet=policySet}}
-        </td>
-    </tr>
-{{/if}}
-{{#if isEditMode }}
-    <tr>
-        <td colspan="3">
-            {{xacml-policy-set-edit policySet=policySet}}
         </td>
     </tr>
 {{/if}}

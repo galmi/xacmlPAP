@@ -3,21 +3,14 @@
     <td>{{policy.description}}</td>
     <td>
         <button type="button" class="button btn btn-default btn-xs glyphicon glyphicon-remove pull-right" {{action "removePolicy" parent policy}}></button>&nbsp;
-        <button type="button" class="button btn btn-default btn-xs glyphicon glyphicon-pencil pull-right" {{action "editPolicy"}}></button>&nbsp;
+        {{#link-to "policies.edit" policy class="button btn btn-default btn-xs glyphicon glyphicon-pencil pull-right"}}{{/link-to}}
         <button type="button" class="button btn btn-default btn-xs glyphicon glyphicon-eye-open pull-right" {{action "viewPolicy"}}></button>
     </td>
 </tr>
 {{#if isViewMode }}
     <tr>
         <td colspan="3">
-            {{xacml-policy-set-view policy=policy}}
-        </td>
-    </tr>
-{{/if}}
-{{#if isEditMode }}
-    <tr>
-        <td colspan="3">
-            {{xacml-policy-set-edit policy=policy}}
+            {{xacml-policy-view policy=policy}}
         </td>
     </tr>
 {{/if}}

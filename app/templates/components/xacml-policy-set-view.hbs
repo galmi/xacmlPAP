@@ -1,0 +1,79 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Policy set: {{policySet.description}}</div>
+    <div class="panel-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="form-horizontal col-md-12">
+                    <label>Description:</label> {{policySet.description}}
+                </div>
+                <div class="form-horizontal col-md-12">
+                    <label>Policy combining algorithm:</label> {{policySet.policyCombiningAlgorithm.description}}
+                </div>
+            </div>
+        </div>
+        {{#if policySet.target }}
+            <div class="row form-group">
+                <div class="col-md-12">
+                    {{xacml-target-view target=policySet.target parent=policySet}}
+                </div>
+            </div>
+        {{/if}}
+        {{#if policySet.policySets}}
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Policy Sets</div>
+                        <div class="panel-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each policySet.policySets as |policySet|}}
+                                    <tr>
+                                        <td>{{policySet.id}}</td>
+                                        <td>{{policySet.description}}</td>
+                                    </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+        {{#if policySet.policies}}
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Policies
+                            <button type="button"
+                                    class="button btn btn-default btn-xs glyphicon glyphicon-remove pull-right" {{action "removePolicies" policySet}}></button>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each policySet.policies as |policy|}}
+                                    <tr>
+                                        <td>{{policy.id}}</td>
+                                        <td>{{policy.description}}</td>
+                                    </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each rules as |rule|}}
+        <tr>
+            <td>{{rule.id}}</td>
+            <td>{{rule.description}}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

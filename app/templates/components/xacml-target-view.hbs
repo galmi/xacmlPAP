@@ -3,7 +3,7 @@
     <div class="panel-body">
         <div class="col-md-12 tree-group">
             {{#if target}}
-                <span>OR</span>
+                <span class="rows-{{target.targetAnyOf.length}}">OR</span>
                 <ul class="list-tree">
                     {{#each target.targetAnyOf as |targetAnyOf|}}
                         <li>
