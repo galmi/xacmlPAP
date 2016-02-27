@@ -46,9 +46,6 @@ export default Ember.Component.extend({
             funcOr.get('conditions').addFragment(funcAnd);
 
             rule.set('condition', funcOr);
-        },
-        addConditionLogic(rule) {
-
         }
     }
 });

@@ -14,6 +14,10 @@ Router.map(function () {
     this.route('new');
     this.route('edit', {path: '/:policy_id'});
   });
+  this.route('policysets', {path: '/policysets'}, function () {
+    this.route('new');
+    this.route('edit', {path: '/:policy_id'});
+  });
 });
 
 export default Router;

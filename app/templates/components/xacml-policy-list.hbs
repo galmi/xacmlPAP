@@ -1,0 +1,14 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each policies as |policy|}}
+        {{xacml-policy-list-row policy=policy parent=parent}}
+    {{/each}}
+    </tbody>
+</table>
