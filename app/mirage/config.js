@@ -29,6 +29,33 @@ export default function () {
         };
     });
 
+    this.get('/policies', function(db, request) {
+        return {
+            policies: db.policies
+        };
+    });
+    this.get('/policies/:id', function(db, request) {
+        return {
+            policy: db.policies.find(request.params.id)
+        };
+    });
+    this.post('/policies', function(db, request) {
+        let attrs = JSON.parse(request.requestBody);
+        let policy = db.policies.insert(attrs);
+        return {
+            policy: policy
+        };
+    });
+    this.put('/policies/:id');
+    this.del('/policies/:id');
+    this.patch('/policies/:id', function(db, request){
+        let attrs = JSON.parse(request.requestBody);
+        let policy = db.policies.update(request.params.id, attrs.policy);
+        return {
+            policy: policy
+        };
+    });
+
     this.get('/matches/:id', function(){
         return {
             match: {

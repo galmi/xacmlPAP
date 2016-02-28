@@ -5,7 +5,5 @@ export default function (server) {
 
     // server.createList('contact', 10);
     server.createList('rule', 5);
-    server.create('rule', {
-        description: 'Rule'
-    });
+    server.createList('policy', 5);
 }

@@ -5,21 +5,8 @@ var xacmlPolicy = Ember.Component.extend({
     selectedRule: null,
     actions: {
         addTarget(policy) {
-            var target = this.get('store').createFragment('target', {
-                targetAnyOf: [
-                    {
-                        targetAllOf: [
-                            {
-                                matches: [
-                                    {
-                                        attributeId: 'subject',
-                                        attributeValue: 'value'
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
+            var target = this.get('store').createRecord('target', {
+                targetAnyOf: []
             });
             policy.set('target', target);
         },
@@ -29,8 +16,9 @@ var xacmlPolicy = Ember.Component.extend({
         addRule(policy) {
             var selectedRule = this.get('selectedRule');
             if (selectedRule) {
-                var rule = this.get('store').peekRecord('rule', selectedRule);
-                policy.get('rules').pushObject(rule);
+                this.get('store').findRecord('rule', selectedRule).then(function(rule){
+                    policy.get('rules').pushObject(rule);
+                });
             }
         }
     }

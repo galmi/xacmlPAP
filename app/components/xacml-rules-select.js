@@ -5,7 +5,6 @@ export default Ember.Component.extend({
     store: Ember.inject.service(),
     data: [],
     didInitAttrs() {
-        var rules = this.get('store').findAll('rule');
-        this.set('data', rules);
+        this.set('data', this.get('store').findAll('rule'));
     }
 });
