@@ -1,11 +1,10 @@
 import DS from 'ember-data';
-import MF from 'model-fragments';
 
 let policySet = DS.Model.extend({
     policyCombiningAlgorithm: DS.belongsTo('combining-algorithm', {async: true}),
     description: DS.attr(),
     version: DS.attr(),
-    target: MF.fragment('target'),
+    target: DS.belongsTo('target', {async: false}),
     policySets: DS.hasMany('policy-set', {async: true, inverse: 'parentSet'}),
     parentSet: DS.belongsTo('policy-set', { inverse: 'policySets' }),
     policies: DS.hasMany('policy', {async: true})

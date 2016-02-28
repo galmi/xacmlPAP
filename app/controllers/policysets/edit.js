@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
             this.transitionToRoute('policysets');
         },
         rollback(policySet) {
-            policySet.rollback();
+            policySet.rollbackAttributes();
             this.transitionToRoute('policysets');
         }
     }

@@ -67,3 +67,4 @@ ul.list-tree>li {
 .rows-1 {
     display: none;
 }
+.inline.ember-view{display: inline-block;}

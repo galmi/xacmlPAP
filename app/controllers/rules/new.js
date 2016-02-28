@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
             this.transitionToRoute('rules');
         },
         rollback(rule) {
-            rule.rollback();
+            rule.rollbackAttributes();
             this.transitionToRoute('rules');
         }
     }

@@ -1,5 +1,5 @@
-import MF from 'model-fragments';
+import DS from 'ember-data';
 
-export default MF.Fragment.extend({
+export default DS.Model.extend({
   
 });

@@ -4,7 +4,7 @@ export default Ember.Component.extend({
     tagName: '',
     store: Ember.inject.service(),
     data: [],
-    didInsertElement() {
+    didInitAttrs() {
         var me = this;
         var policySets = this.get('store').filter('policy-set', function(policySet){
             return policySet.get('id') !== me.get('exclude').get('id');

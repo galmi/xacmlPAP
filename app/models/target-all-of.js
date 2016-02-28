@@ -1,7 +1,5 @@
-import MF from 'model-fragments';
+import DS from 'ember-data';
 
-var targetAllOf = MF.Fragment.extend({
-  matches: MF.fragmentArray('match')
+export default DS.Model.extend({
+    matches: DS.hasMany('match', {async: false})
 });
-
-export default targetAllOf;

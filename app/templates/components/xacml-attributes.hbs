@@ -1,7 +1,9 @@
-{{view "select"
-contentBinding=data
-optionValuePath="content.id"
-optionLabelPath="content.name"
+{{select-dropdown
+content=data
+groups=groupsData
+optionLabelPath="name"
+optionValuePath="id"
 optionGroupPath="group"
-value=value
-class="form-control"}}
+selection=value
+class="inline"
+selectClass="form-control"}}

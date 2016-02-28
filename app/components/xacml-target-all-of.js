@@ -3,10 +3,11 @@ import Ember from 'ember';
 export default Ember.Component.extend({
     actions: {
         addTargetMatch(targetAllOf) {
-            targetAllOf.get('matches').createFragment({
+            let match = targetAllOf.get('store').createRecord('match', {
                 attributeId: '',
                 attributeValue: ''
             });
+            targetAllOf.get('matches').pushObject(match);
         }
     }
 });
