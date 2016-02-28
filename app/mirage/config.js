@@ -56,6 +56,33 @@ export default function () {
         };
     });
 
+    this.get('/policy-sets', function(db, request) {
+        return {
+            "policy-sets": db['policy-sets']
+        };
+    });
+    this.get('/policy-sets/:id', function(db, request) {
+        return {
+            'policy-set': db['policy-sets'].find(request.params.id)
+        };
+    });
+    this.post('/policy-sets', function(db, request) {
+        let attrs = JSON.parse(request.requestBody);
+        let policySet = db['policy-sets'].insert(attrs);
+        return {
+            'policy-set': policySet
+        };
+    });
+    this.put('/policy-sets/:id');
+    this.del('/policy-sets/:id');
+    this.patch('/policy-sets/:id', function(db, request){
+        let attrs = JSON.parse(request.requestBody);
+        let policySet = db['policy-sets'].update(request.params.id, attrs.policy);
+        return {
+            'policy-set': policySet
+        };
+    });
+
     this.get('/matches/:id', function(){
         return {
             match: {

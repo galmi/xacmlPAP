@@ -6,4 +6,5 @@ export default function (server) {
     // server.createList('contact', 10);
     server.createList('rule', 5);
     server.createList('policy', 5);
+    server.createList('policy-set', 5);
 }

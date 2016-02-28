@@ -30,18 +30,20 @@ export default Ember.Component.extend({
         addPolicySet(policySet) {
             var selectedPolicySet = this.get('selectedPolicySet');
             if (selectedPolicySet) {
-                var newPolicySet = this.get('store').peekRecord('policy-set', selectedPolicySet);
-                policySet.get('policySets').pushObject(newPolicySet);
+                this.get('store').findRecord('policy-set', selectedPolicySet).then(function(newPolicySet){
+                    policySet.get('policySets').pushObject(newPolicySet);
+                });
             }
         },
         removePolicies(policy) {
             policy.set('policies', []);
         },
-        addPolicy(policySet) {
+        addPolicy(policy) {
             var selectedPolicy = this.get('selectedPolicy');
             if (selectedPolicy) {
-                var policy = this.get('store').peekRecord('policy', selectedPolicy);
-                policySet.get('policies').pushObject(policy);
+                this.get('store').findRecord('policy', selectedPolicy).then(function(newPolicy){
+                    policy.get('policies').pushObject(newPolicy);
+                });
             }
         }
     }
