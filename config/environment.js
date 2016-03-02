@@ -4,8 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'xacml-pap',
     environment: environment,
-    baseURL: '/',
-    locationType: 'auto',
+    baseURL: '/xacml-pap',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
