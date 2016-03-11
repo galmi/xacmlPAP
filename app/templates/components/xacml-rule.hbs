@@ -1,17 +1,13 @@
 <div class="row form-group">
     <div class="form-horizontal col-md-12">
         <div class="form-group">
-            <div class="col-sm-offset-1 col-sm-10">
-                <div class="checkbox">
-                    <label class="col-sm-1 control-label">Effect</label>
-                    <div class="col-sm-11">
-                        {{input value=rule.effect class="form-control" placeholder="Effect"}}
-                    </div>
-                </div>
+            <label class="col-sm-1 control-label">Effect</label>
+            <div class="col-sm-11">
+                {{xacml-effect-select value=rule.effect}}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-1 control-label">Descrition</label>
+            <label class="col-sm-1 control-label">Description</label>
             <div class="col-sm-11">
                 {{input value=rule.description class="form-control" placeholder="Description"}}
             </div>

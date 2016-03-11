@@ -21,7 +21,7 @@ export default Ember.Component.extend({
             let hasPrompt = !!this.get('prompt');
             let contentIndex = hasPrompt ? selectedIndex - 1 : selectedIndex;
             let _selection;
-            if (typeof content.get === 'function') {
+            if (typeof content.get === 'function' && content.get('content')) {
                 _selection = content.get('content').content[contentIndex];
             } else {
                 _selection = content[contentIndex];
