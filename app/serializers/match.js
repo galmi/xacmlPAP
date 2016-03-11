@@ -4,7 +4,6 @@ export default DS.RESTSerializer.extend({
     normalize (modelClass, resourceHash, prop){
         if (!resourceHash.hasOwnProperty('id')) {
             resourceHash['id'] = 'match-' + Math.random() * 100;
-            console.log(resourceHash);
         }
         return this._super(...arguments);
     //},

@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    policyCombiningAlgorithm: DS.attr(),//DS.belongsTo('combining-algorithm', {async: true}),
+    policyCombiningAlgId: DS.attr(), //DS.belongsTo('combining-algorithm', {async: true}),
     description: DS.attr(),
     version: DS.attr(),
     target: DS.belongsTo('target', {async: false}),

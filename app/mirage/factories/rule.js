@@ -9,7 +9,7 @@ export default Mirage.Factory.extend({
     description(i) {
         return `Rule ${i}`;
     },
-    isPermit: true,
+    effect: 'Permit',
     target: {
         targetAnyOf: [
             {

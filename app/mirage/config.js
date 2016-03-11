@@ -119,6 +119,44 @@ export default function () {
            ]
        };
     });
+
+    var combiningAlgorithms = [
+        {
+            id: 'deny-overrides',
+            description: 'Deny overrides'
+        }, {
+            id: 'deny-unless-permit',
+            description: 'Deny unless permit'
+        }, {
+            id: 'first-applicable',
+            description: 'First applicable'
+        }, {
+            id: 'only-one-applicable',
+            description: 'Only one applicable'
+        }, {
+            id: 'permit-overrides',
+            description: 'Permit overrides'
+        }, {
+            id: 'permit-unless-deny',
+            description: 'Permit unless deny'
+        }
+    ];
+    this.get('/combiningAlgorithms', function(){
+        return {
+           combiningAlgorithms: combiningAlgorithms
+       };
+    });
+    this.get('/combiningAlgorithms/:id', function(db, request){
+        var value;
+        combiningAlgorithms.forEach(function(item) {
+            if (item.id === request.params.id) {
+                value = item;
+            }
+        });
+        return {
+            combiningAlgorithm: value
+        };
+    });
     // These comments are here to help you get started. Feel free to delete them.
 
     /*

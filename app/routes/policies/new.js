@@ -4,6 +4,7 @@ export default Ember.Route.extend({
     model() {
         return this.get('store').createRecord('policy', {
             target: null,
+            ruleCombiningAlgId: null,
             rules: []
         });
     }

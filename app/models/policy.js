@@ -4,6 +4,6 @@ export default DS.Model.extend({
     version: DS.attr(),
     description: DS.attr(),
     target: DS.belongsTo('target', {async: false}),
-    ruleCombiningAlgorithm: DS.attr(), //DS.belongsTo('combining-algorithm'),
+    ruleCombiningAlgId: DS.attr(), //DS.belongsTo('combining-algorithm', {async: true}),
     rules: DS.hasMany('rule', {async: true})
 });
