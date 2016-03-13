@@ -157,6 +157,17 @@ export default function () {
             combiningAlgorithm: value
         };
     });
+
+    this.get('/functionEqualities', function() {
+        return {
+            'function-equalities': [
+                {
+                    id: 'string-equals',
+                    name: 'string-equals'
+                }
+            ]
+        };
+    });
     // These comments are here to help you get started. Feel free to delete them.
 
     /*

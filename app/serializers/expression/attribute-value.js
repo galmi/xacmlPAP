@@ -1,14 +1,14 @@
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
-    normalize (modelClass, resourceHash, prop){
+    normalize (modelClass, resourceHash){
         resourceHash['id'] = 'value-' + Math.random()*100;
         return this._super(...arguments);
     },
-    serialize(snapshot, options) {
+    serialize() {
         var json = this._super(...arguments);
         delete json.id;
-        json.type = 'condition.attribute-value';
+        json.type = 'expression.attribute-value';
 
         return json;
     }

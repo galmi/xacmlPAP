@@ -36,27 +36,27 @@ export default Mirage.Factory.extend({
     },
     condition: {
         id: 1,
-        type: 'condition.apply',
+        type: 'expression.apply',
         functionId: 'func-or',
-        conditions: [
+        expressions: [
             {
                 id: 2,
-                type: 'condition.apply',
+                type: 'expression.apply',
                 functionId: 'func-and',
-                conditions: [
+                expressions: [
                     {
                         id: 3,
-                        type: 'condition.apply',
+                        type: 'expression.apply',
                         functionId: 'func-equal',
-                        conditions: [
+                        expressions: [
                             {
                                 id: 4,
-                                type: 'condition.attribute-designator',
+                                type: 'expression.attribute-designator',
                                 attributeId: 'environment'
                             },
                             {
                                 id: 5,
-                                type: 'condition.attribute-value',
+                                type: 'expression.attribute-value',
                                 attributeValue: '123'
                             }
                         ]

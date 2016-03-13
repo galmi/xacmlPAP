@@ -10,7 +10,7 @@
                     <span>OR</span>
                     <button class="btn btn-default btn-xs glyphicon glyphicon-plus" {{action "addOrCondition" condition}}></button>
                     <ul class="list-tree">
-                        {{#each condition.conditions as |childCondition|}}
+                        {{#each condition.expressions as |childCondition|}}
                             <li>
                                 {{xacml-condition condition=childCondition parentCondition=condition}}
                             </li>
@@ -26,7 +26,7 @@
                 <button class="button btn btn-default btn-xs glyphicon glyphicon-plus" {{action "addAndCondition" condition}}></button>
                 <button class="button btn btn-default btn-xs glyphicon glyphicon-minus" {{action "removeCondition" parentCondition condition}}></button>
                 <ul class="list-tree">
-                    {{#each condition.conditions as |childCondition|}}
+                    {{#each condition.expressions as |childCondition|}}
                         <li>
                             {{xacml-condition condition=childCondition parentCondition=condition}}
                         </li>
@@ -37,16 +37,16 @@
     {{else }}
         <div class="row">
             <div class="col-md-12 form-inline">
-                {{#if condition.firstCondition.attributeId}}
-                    {{xacml-attributes value=condition.firstCondition.attributeId}}
+                {{#if condition.firstExpression.attributeId}}
+                    {{xacml-attributes value=condition.firstExpression.attributeId}}
                 {{/if}}
                 &nbsp;
-                {{input value=condition.functionId class="form-control"}}
+                {{func-equality value=condition.functionId}}
                 &nbsp;
-                {{#if condition.lastCondition.attributeId}}
-                    {{xacml-attributes value=condition.lastCondition.attributeId}}
-                {{else if condition.lastCondition.value}}
-                    {{input value=condition.lastCondition.value class="form-control"}}
+                {{#if condition.lastExpression.attributeId}}
+                    {{xacml-attributes value=condition.lastExpression.attributeId}}
+                {{else if condition.lastExpression.value}}
+                    {{input value=condition.lastExpression.value class="form-control"}}
                 {{/if}}
                 <button class="button btn btn-default btn-xs glyphicon glyphicon-minus" {{action "removeCondition" parentCondition condition}}></button>
             </div>

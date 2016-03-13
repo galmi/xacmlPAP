@@ -10,27 +10,27 @@ export default Ember.Component.extend({
             rule.set('target', target);
         },
         addConditionAttribute(rule) {
-            var designator = this.get('store').createRecord('condition.attribute-designator', {
+            var designator = this.get('store').createRecord('expression.attribute-designator', {
                 attributeId: 'environment'
             });
-            var value = this.get('store').createRecord('condition.attribute-value', {
+            var value = this.get('store').createRecord('expression.attribute-value', {
                 value: '321'
             });
-            var apply = this.get('store').createRecord('condition.apply', {
+            var apply = this.get('store').createRecord('expression.apply', {
                 functionId: 'is-equal'
             });
-            apply.get('conditions').pushObject(designator);
-            apply.get('conditions').pushObject(value);
+            apply.get('expressions').pushObject(designator);
+            apply.get('expressions').pushObject(value);
 
-            var funcAnd = this.get('store').createRecord('condition.apply', {
+            var funcAnd = this.get('store').createRecord('expression.apply', {
                 functionId: 'func-and'
             });
-            funcAnd.get('conditions').pushObject(apply);
+            funcAnd.get('expressions').pushObject(apply);
 
-            var funcOr = this.get('store').createRecord('condition.apply', {
+            var funcOr = this.get('store').createRecord('expression.apply', {
                 functionId: 'func-or'
             });
-            funcOr.get('conditions').pushObject(funcAnd);
+            funcOr.get('expressions').pushObject(funcAnd);
 
             rule.set('condition', funcOr);
         }

@@ -13,18 +13,14 @@ export default Mirage.Factory.extend({
     target: {
         targetAnyOf: [
             {
-                id: 1,
                 targetAllOf: [
                     {
-                        id: 1,
                         matches: [
                             {
-                                id: 1,
                                 attributeId: 'subject',
                                 attributeValue: 'Value1'
                             },
                             {
-                                id: 2,
                                 attributeId: 'Attr2',
                                 attributeValue: 'Value2'
                             }

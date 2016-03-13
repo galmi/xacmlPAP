@@ -4,44 +4,44 @@ export default Ember.Component.extend({
     store: Ember.inject.service(),
     actions: {
         addOrCondition(parentCondition) {
-            var designator = this.get('store').createRecord('condition.attribute-designator', {
+            var designator = this.get('store').createRecord('expression.attribute-designator', {
                 attributeId: 'environment'
             });
-            var value = this.get('store').createRecord('condition.attribute-value', {
+            var value = this.get('store').createRecord('expression.attribute-value', {
                 value: '321'
             });
-            var apply = this.get('store').createRecord('condition.apply', {
+            var apply = this.get('store').createRecord('expression.apply', {
                 functionId: 'is-equal'
             });
-            apply.get('conditions').pushObject(designator);
-            apply.get('conditions').pushObject(value);
+            apply.get('expressions').pushObject(designator);
+            apply.get('expressions').pushObject(value);
 
-            var funcAnd = this.get('store').createRecord('condition.apply', {
+            var funcAnd = this.get('store').createRecord('expression.apply', {
                 functionId: 'func-and'
             });
-            funcAnd.get('conditions').pushObject(apply);
+            funcAnd.get('expressions').pushObject(apply);
 
-            parentCondition.get('conditions').pushObject(funcAnd);
+            parentCondition.get('expressions').pushObject(funcAnd);
         },
 
         addAndCondition(parentCondition) {
-            var designator = this.get('store').createRecord('condition.attribute-designator', {
+            var designator = this.get('store').createRecord('expression.attribute-designator', {
                 attributeId: 'environment'
             });
-            var value = this.get('store').createRecord('condition.attribute-value', {
+            var value = this.get('store').createRecord('expression.attribute-value', {
                 value: '321'
             });
-            var apply = this.get('store').createRecord('condition.apply', {
+            var apply = this.get('store').createRecord('expression.apply', {
                 functionId: 'is-equal'
             });
-            apply.get('conditions').pushObject(designator);
-            apply.get('conditions').pushObject(value);
+            apply.get('expressions').pushObject(designator);
+            apply.get('expressions').pushObject(value);
 
-            parentCondition.get('conditions').pushObject(apply);
+            parentCondition.get('expressions').pushObject(apply);
         },
 
         removeCondition(parentCondition, condition) {
-            parentCondition.get('conditions').removeObject(condition);
+            parentCondition.get('expressions').removeObject(condition);
         },
 
         removeRuleCondition(rule) {

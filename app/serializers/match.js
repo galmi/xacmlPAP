@@ -6,11 +6,11 @@ export default DS.RESTSerializer.extend({
             resourceHash['id'] = 'match-' + Math.random() * 100;
         }
         return this._super(...arguments);
-    //},
-    //serialize(snapshot, options) {
-    //    var json = this._super(...arguments);
-    //    delete json.id;
-    //    console.log('serialize', json);
-    //    return json;
+    },
+    serialize(snapshot, options) {
+        var json = this._super(...arguments);
+        delete json.id;
+
+        return json;
     }
 });

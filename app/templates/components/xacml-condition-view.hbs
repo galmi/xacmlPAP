@@ -31,16 +31,16 @@
     {{else }}
         <div class="row">
             <div class="col-md-12 form-inline">
-                {{#if condition.firstCondition.attributeId}}
-                    {{condition.firstCondition.attributeId}}
+                {{#if condition.firstExpression.attributeId}}
+                    {{condition.firstExpression.attributeId}}
                 {{/if}}
                 &nbsp;
                 {{condition.functionId}}
                 &nbsp;
-                {{#if condition.lastCondition.attributeId}}
-                    {{condition.lastCondition.attributeId}}
-                {{else if condition.lastCondition.value}}
-                    {{condition.lastCondition.value}}
+                {{#if condition.lastExpression.attributeId}}
+                    {{condition.lastExpression.attributeId}}
+                {{else if condition.lastExpression.value}}
+                    {{condition.lastExpression.value}}
                 {{/if}}
             </div>
         </div>
