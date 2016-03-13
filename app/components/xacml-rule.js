@@ -14,10 +14,10 @@ export default Ember.Component.extend({
                 attributeId: 'environment'
             });
             var value = this.get('store').createRecord('expression.attribute-value', {
-                value: '321'
+                value: ''
             });
             var apply = this.get('store').createRecord('expression.apply', {
-                functionId: 'is-equal'
+                functionId: 'string-equal'
             });
             apply.get('expressions').pushObject(designator);
             apply.get('expressions').pushObject(value);

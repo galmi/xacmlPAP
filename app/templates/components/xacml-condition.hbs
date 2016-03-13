@@ -45,7 +45,7 @@
                 &nbsp;
                 {{#if condition.lastExpression.attributeId}}
                     {{xacml-attributes value=condition.lastExpression.attributeId}}
-                {{else if condition.lastExpression.value}}
+                {{else}}
                     {{input value=condition.lastExpression.value class="form-control"}}
                 {{/if}}
                 <button class="button btn btn-default btn-xs glyphicon glyphicon-minus" {{action "removeCondition" parentCondition condition}}></button>

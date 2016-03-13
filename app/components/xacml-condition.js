@@ -8,7 +8,7 @@ export default Ember.Component.extend({
                 attributeId: 'environment'
             });
             var value = this.get('store').createRecord('expression.attribute-value', {
-                value: '321'
+                value: ''
             });
             var apply = this.get('store').createRecord('expression.apply', {
                 functionId: 'is-equal'
@@ -29,7 +29,7 @@ export default Ember.Component.extend({
                 attributeId: 'environment'
             });
             var value = this.get('store').createRecord('expression.attribute-value', {
-                value: '321'
+                value: ''
             });
             var apply = this.get('store').createRecord('expression.apply', {
                 functionId: 'is-equal'
